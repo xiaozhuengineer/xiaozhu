@@ -1,0 +1,23 @@
+# include "stm32f10x.h"
+# include "sys.h"
+# include "delay.h"
+# include "usart.h"
+#include  "hx711.h"
+
+int main(void)
+{
+	 uint16_t  cm=0;
+   uart_init(115200);
+   delay_init();
+   ADInit(); //AD初始化
+//   a = Get_Maopi();//获取毛皮重量
+   while(1)
+  {
+		cm = Get_Weight();
+		delay_ms(500);
+		printf("%d\t",cm);	//输出实物重量并保留两位小数
+		
+  }
+
+
+}
